@@ -110,23 +110,6 @@ docker-compose up -d
 The pipeline is configured to run **hourly** by default (controlled by the `schedule_interval` parameter in the DAG file).
 ## Analytics & Safety Insights
 
-The following SQL query helps dispatchers quickly identify hazardous weather conditions (high wind or low visibility) in the most recent records:
-
-```sql
-SELECT
-    city,
-    observed_at,
-    temp_c,
-    wind_speed_ms,
-    visibility_m,
-    condition_description
-FROM weather_readings
-WHERE wind_speed_ms > 10                  -- ~36 km/h (strong wind threshold)
-   OR visibility_m < 2000                 -- < 2 km (poor visibility threshold)
-ORDER BY observed_at DESC
-LIMIT 50;                                 -- optional: limit to most recent records
-```
-
 ## Analytics
 
 Sample queries for extreme condition detection (High wind/Rain) are included in the `analytics/` folder.
@@ -151,3 +134,4 @@ Looking forward to your contributions!
 ## License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for full details.
+
