@@ -1,0 +1,10 @@
+# Ignore Environment Variables (Security)
+.env
+
+# Ignore Python Cache
+__pycache__/
+*.pyc
+
+# Ignore Airflow specific local files (if any)
+unittests.cfg
+airflow.db
